@@ -1,3 +1,4 @@
+
 import { TrendingList } from 'components/TrendingList/TrendingList';
 import { Box } from 'components/Box/Box';
 

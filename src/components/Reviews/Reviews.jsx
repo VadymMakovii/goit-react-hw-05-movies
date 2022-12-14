@@ -6,7 +6,7 @@ import { ReviewItem } from 'components/ReviewItem/ReviewItem';
 import { Box } from 'components/Box/Box';
 import { ReviewLoader } from 'components/Loader/Loader';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -53,3 +53,6 @@ export const Reviews = () => {
     </Box>
   );
 };
+
+
+export default Reviews;

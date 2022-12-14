@@ -7,7 +7,7 @@ import { SearchMovieItem } from 'components/SearchMovieItem/SearchMovieItem';
 import { SearcMoviesLoader } from 'components/Loader/Loader';
 import { Box } from 'components/Box/Box';
 
-export const SearchMovies = ({ query }) => {
+const SearchMovies = ({ query }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,3 +52,6 @@ export const SearchMovies = ({ query }) => {
 SearchMovies.propTypes = {
   query: PropTypes.string.isRequired,
 };
+
+
+export default SearchMovies;

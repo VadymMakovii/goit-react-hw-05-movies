@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 import {
   ContentWrapper,
   Poster,
@@ -6,6 +7,7 @@ import {
   MovieTitle,
   Content,
   SecondaryTitle,
+  GoBackLink,
 } from './MovieCard.styled';
 
 export const MovieCard = ({
@@ -16,8 +18,12 @@ export const MovieCard = ({
   overview,
   genres,
 }) => {
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+
   return (
     <ContentWrapper>
+      <GoBackLink to={backLinkHref}>&#129128; Go back</GoBackLink>
       <Poster src={poster} alt={description} />
       <DescriptionWrapper>
         <MovieTitle>{title}</MovieTitle>

@@ -1,10 +1,12 @@
+import { lazy, Suspense } from 'react';
+import { toast } from 'react-hot-toast';
+import { useSearchParams } from 'react-router-dom';
 import { Box } from 'components/Box/Box';
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { SearchMovies } from 'components/SearchMovies/SearchMovies';
-import { toast } from 'react-hot-toast';
-import { Outlet, useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const SearchMovies = lazy(() => import('components/SearchMovies/SearchMovies'));
+
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const request = searchParams.get('query') ?? '';
 
@@ -18,8 +20,13 @@ export const Movies = () => {
   return (
     <Box pl={3}>
       <SearchForm onSubmit={formSubmitHandler} />
-      {request  && <SearchMovies query={request} />}
-      <Outlet />
+      {request && (
+        <Suspense fallback={null}>
+          <SearchMovies query={request} />
+        </Suspense>
+      )}
     </Box>
   );
 };
+
+export default Movies;

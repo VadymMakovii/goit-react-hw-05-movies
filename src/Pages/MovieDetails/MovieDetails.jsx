@@ -1,13 +1,14 @@
+
 import { AditionalInfo } from 'components/AditionalInfo/AditionalInfo';
 import { Box } from 'components/Box/Box';
 import { MovieCardLoader } from 'components/Loader/Loader';
 import { MovieCard } from 'components/MovieCard/MovieCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { toast } from 'react-hot-toast';
 import { Outlet, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../../services/movie-api';
 
-export const MoviePage = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +52,7 @@ export const MoviePage = () => {
   return (
     <>
       {movie && (
-        <Box display="grid" gridGap={4}>
+        <Box display="grid" gridGap={3}>
           <MovieCard
             poster={movie.poster}
             description={movie.poster_alt}
@@ -61,10 +62,14 @@ export const MoviePage = () => {
             genres={movie.genres}
           />
           <AditionalInfo />
-          <Outlet />
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
         </Box>
       )}
-      {isLoading && <MovieCardLoader/>}
+      {isLoading && <MovieCardLoader />}
     </>
   );
 };
+
+export default MovieDetails;

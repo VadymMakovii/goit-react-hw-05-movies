@@ -7,7 +7,7 @@ import { List } from './CastList.styled';
 import { CastLoader } from 'components/Loader/Loader';
 import { Box } from 'components/Box/Box';
 
-export const CastList = () => {
+const CastList = () => {
   const { movieId } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,4 +51,6 @@ export const CastList = () => {
     </Box>
   );
 };
+
+export default CastList;
 

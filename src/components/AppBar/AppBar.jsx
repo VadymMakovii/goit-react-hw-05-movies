@@ -8,7 +8,7 @@ const navItems = [
 
 export const AppBar = () => {
   return (
-    <Box as="header" p={3} fontSize="l" boxShadow="bottom">
+    <Box as="header" p={3} fontSize="l" boxShadow="bottom" position='sticky' top='0' left='0' zIndex='99' bg='background'>
       <AppNav>
         {navItems.map(({ href, text }) => (
           <NavItem to={href} key={href}>
