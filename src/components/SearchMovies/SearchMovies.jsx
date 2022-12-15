@@ -4,7 +4,7 @@ import { getSearchMovies } from 'services/movie-api';
 import toast from 'react-hot-toast';
 import { List } from './SearchMovies.styled';
 import { SearchMovieItem } from 'components/SearchMovieItem/SearchMovieItem';
-import { SearcMoviesLoader } from 'components/Loader/Loader';
+import { MovieListLoader } from 'components/Loader/Loader';
 import { Box } from 'components/Box/Box';
 
 const SearchMovies = ({ query }) => {
@@ -13,9 +13,10 @@ const SearchMovies = ({ query }) => {
 
   useEffect(() => {
     setIsLoading(true);
+    const controller = new AbortController();
     async function fetchMovies() {
       try {
-        const response = await getSearchMovies(query);
+        const response = await getSearchMovies(query, controller );
         response.results.length < 1 &&
           toast.error(
             'Sorry, there are no movies matching your search query. Please try again.'
@@ -33,6 +34,9 @@ const SearchMovies = ({ query }) => {
       }
     }
     fetchMovies();
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   return (
@@ -44,7 +48,7 @@ const SearchMovies = ({ query }) => {
           ))}
         </List>
       )}
-      {isLoading && <SearcMoviesLoader />}
+      {isLoading && <MovieListLoader />}
     </Box>
   );
 };

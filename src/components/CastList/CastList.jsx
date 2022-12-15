@@ -14,9 +14,10 @@ const CastList = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    const controller = new AbortController();
     async function fetchInfo() {
       try {
-        const response = await getMovieCredits(movieId);
+        const response = await getMovieCredits(movieId, {signal: controller.signal });
 
         const results = response.cast.map(
           ({ id, name, character, profile_path }) => ({
@@ -36,6 +37,9 @@ const CastList = () => {
       }
     }
     fetchInfo();
+    return () => {
+      controller.abort();
+    };
   }, [movieId]);
 
   return (

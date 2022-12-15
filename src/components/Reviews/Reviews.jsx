@@ -13,9 +13,10 @@ const Reviews = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    const controller = new AbortController();
     async function fetchInfo() {
       try {
-        const response = await getMovieReviews(movieId);
+        const response = await getMovieReviews(movieId, {signal: controller.signal });
         const results = response.results.map(({ id, author, content }) => ({
           id,
           author,
@@ -30,6 +31,9 @@ const Reviews = () => {
       }
     }
     fetchInfo();
+    return () => {
+      controller.abort();
+    };
   }, [movieId]);
 
   if (data?.length < 1) {

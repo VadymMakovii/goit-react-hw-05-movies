@@ -53,7 +53,7 @@ export const MovieCardLoader = () => (
 );
 
 export const MovieListLoader = () => (
-<ContentLoader 
+  <ContentLoader
     speed={1}
     width={400}
     height={650}
@@ -61,73 +61,25 @@ export const MovieListLoader = () => (
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
   >
-    <circle cx="13" cy="75" r="3" /> 
-    <rect x="30" y="70" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="13" cy="104" r="3" /> 
-    <rect x="30" y="99" rx="1" ry="1" width="250" height="10" /> 
-    <circle cx="13" cy="134" r="3" /> 
-    <rect x="30" y="129" rx="1" ry="1" width="300" height="10" /> 
-    <circle cx="13" cy="163" r="3" /> 
-    <rect x="30" y="158" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="13" cy="194" r="3" /> 
-    <rect x="30" y="189" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="13" cy="223" r="3" /> 
-    <rect x="30" y="218" rx="1" ry="1" width="320" height="10" /> 
-    <circle cx="13" cy="253" r="3" /> 
-    <rect x="30" y="248" rx="1" ry="1" width="190" height="10" /> 
-    <circle cx="13" cy="282" r="3" /> 
-    <rect x="30" y="277" rx="1" ry="1" width="180" height="10" /> 
-    <circle cx="14" cy="308" r="3" /> 
-    <rect x="31" y="303" rx="1" ry="1" width="330" height="10" /> 
-    <circle cx="14" cy="337" r="3" /> 
-    <rect x="31" y="332" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="14" cy="367" r="3" /> 
-    <rect x="31" y="362" rx="1" ry="1" width="300" height="10" /> 
-    <circle cx="14" cy="396" r="3" /> 
-    <rect x="31" y="391" rx="1" ry="1" width="270" height="10" /> 
-    <circle cx="14" cy="427" r="3" /> 
-    <rect x="31" y="422" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="14" cy="456" r="3" /> 
-    <rect x="31" y="451" rx="1" ry="1" width="320" height="10" /> 
-    <circle cx="14" cy="486" r="3" /> 
-    <rect x="31" y="481" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="14" cy="515" r="3" /> 
-    <rect x="31" y="510" rx="1" ry="1" width="170" height="10" /> 
-    <circle cx="13" cy="544" r="3" /> 
-    <rect x="30" y="539" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="13" cy="573" r="3" /> 
-    <rect x="30" y="568" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="13" cy="603" r="3" /> 
-    <rect x="30" y="598" rx="1" ry="1" width="350" height="10" /> 
-    <circle cx="13" cy="632" r="3" /> 
-    <rect x="30" y="627" rx="1" ry="1" width="350" height="10" /> 
+    <circle cx="3" cy="5" r="3" />
+    <rect x="22" y="0" rx="1" ry="1" width="260" height="10" />
+    <circle cx="3" cy="35" r="3" />
+    <rect x="22" y="30" rx="1" ry="1" width="360" height="10" />
+    <circle cx="3" cy="65" r="3" />
+    <rect x="22" y="60" rx="1" ry="1" width="200" height="10" />
+    <circle cx="3" cy="95" r="3" />
+    <rect x="22" y="90" rx="1" ry="1" width="180" height="10" />
+    <circle cx="3" cy="125" r="3" />
+    <rect x="22" y="120" rx="1" ry="1" width="260" height="10" />
+    <circle cx="3" cy="155" r="3" />
+    <rect x="22" y="150" rx="1" ry="1" width="260" height="10" />
+    <circle cx="3" cy="185" r="3" />
+    <rect x="22" y="180" rx="1" ry="1" width="320" height="10" />
+    <circle cx="3" cy="215" r="3" />
+    <rect x="22" y="210" rx="1" ry="1" width="300" height="10" />
+    <circle cx="3" cy="245" r="3" />
+    <rect x="22" y="240" rx="1" ry="1" width="200" height="10" />
+    <circle cx="3" cy="275" r="3" />
+    <rect x="22" y="270" rx="1" ry="1" width="260" height="10" />
   </ContentLoader>
 );
-
-export const SearcMoviesLoader = () => (
-  <ContentLoader 
-    speed={1}
-    width={400}
-    height={650}
-    viewBox="0 0 400 650"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-  >
-    <circle cx="3" cy="5" r="3" /> 
-    <rect x="22" y="0" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="34" r="3" /> 
-    <rect x="22" y="29" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="64" r="3" /> 
-    <rect x="22" y="59" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="93" r="3" /> 
-    <rect x="22" y="88" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="124" r="3" /> 
-    <rect x="22" y="119" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="152" r="3" /> 
-    <rect x="22" y="147" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="182" r="3" /> 
-    <rect x="22" y="177" rx="1" ry="1" width="260" height="10" /> 
-    <circle cx="3" cy="211" r="3" /> 
-    <rect x="22" y="206" rx="1" ry="1" width="260" height="10" />
-  </ContentLoader>
-)

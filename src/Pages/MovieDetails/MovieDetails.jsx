@@ -15,9 +15,10 @@ const MovieDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    const controller = new AbortController();
     async function fetchMovies() {
       try {
-        const response = await getMovieDetails(movieId);
+        const response = await getMovieDetails(movieId, {signal: controller.signal });
         const {
           id,
           title,
@@ -47,6 +48,9 @@ const MovieDetails = () => {
     }
 
     fetchMovies();
+    return () => {
+      controller.abort();
+    };
   }, [movieId]);
 
   return (
