@@ -6,7 +6,7 @@ export const TrendingItem = ({ id, description }) => {
   const location = useLocation();
   return (
     <Item>
-      <ItemLink to={`/movies/${id}`} state={ {from: location}}>{description}</ItemLink>
+      <ItemLink to={`/movies/${id}`} state={{from: location}}>{description}</ItemLink>
     </Item>
   );
 };

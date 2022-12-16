@@ -20,7 +20,6 @@ export const MovieCard = ({
 }) => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-
   return (
     <ContentWrapper>
       <GoBackLink to={backLinkHref}>&#129128; Go back</GoBackLink>

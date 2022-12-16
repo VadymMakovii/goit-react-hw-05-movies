@@ -16,7 +16,9 @@ const Reviews = () => {
     const controller = new AbortController();
     async function fetchInfo() {
       try {
-        const response = await getMovieReviews(movieId, {signal: controller.signal });
+        const response = await getMovieReviews(movieId, {
+          signal: controller.signal,
+        });
         const results = response.results.map(({ id, author, content }) => ({
           id,
           author,
@@ -57,6 +59,5 @@ const Reviews = () => {
     </Box>
   );
 };
-
 
 export default Reviews;

@@ -1,4 +1,3 @@
-
 import { AditionalInfo } from 'components/AditionalInfo/AditionalInfo';
 import { Box } from 'components/Box/Box';
 import { MovieCardLoader } from 'components/Loader/Loader';
@@ -18,7 +17,9 @@ const MovieDetails = () => {
     const controller = new AbortController();
     async function fetchMovies() {
       try {
-        const response = await getMovieDetails(movieId, {signal: controller.signal });
+        const response = await getMovieDetails(movieId, {
+          signal: controller.signal,
+        });
         const {
           id,
           title,
@@ -31,9 +32,11 @@ const MovieDetails = () => {
 
         const results = {
           id: id.toString(),
-          title: `${title} (${new Date(release_date).getFullYear()})`,
+          title: `${title} (${new Date(release_date)?.getFullYear() || ''})`,
           overview,
-          poster: `https://image.tmdb.org/t/p/w300/${poster_path}`,
+          poster: `https://image.tmdb.org/t/p/w300${
+            poster_path ?? '/fSRb7vyIP8rQpL0I47P3qUsEKX3.jpg'
+          }`,
           poster_alt: `Poster of movie ${title}`,
           score: `${(vote_average * 10).toFixed(0)}%`,
           genres: genres.map(genre => genre.name).join(', '),

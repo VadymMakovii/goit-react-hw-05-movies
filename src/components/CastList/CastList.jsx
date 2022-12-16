@@ -17,7 +17,9 @@ const CastList = () => {
     const controller = new AbortController();
     async function fetchInfo() {
       try {
-        const response = await getMovieCredits(movieId, {signal: controller.signal });
+        const response = await getMovieCredits(movieId, {
+          signal: controller.signal,
+        });
 
         const results = response.cast.map(
           ({ id, name, character, profile_path }) => ({
@@ -26,7 +28,7 @@ const CastList = () => {
             character,
             photo: profile_path
               ? `https://image.tmdb.org/t/p/w300/${profile_path}`
-              : 'https://stuki-druki.com/biofoto4/alexey-arestovich-01.jpg',
+              : 'https://image.tmdb.org/t/p/w300/hVv5NHtoCvIPX7V4eYTj78cEzdF.jpg',
           })
         );
         setData(results);
@@ -42,19 +44,31 @@ const CastList = () => {
     };
   }, [movieId]);
 
+  if (data?.length < 1) {
+    return (
+      <Box as="p" pl={4} m={0}>
+        We don't have cast for this movie
+      </Box>
+    );
+  }
+
   return (
     <Box pl={4}>
       {data && (
         <List>
           {data.map(({ id, name, character, photo }) => (
-            <CastItem key={id} photo={photo} name={name} character={character} />
+            <CastItem
+              key={id}
+              photo={photo}
+              name={name}
+              character={character}
+            />
           ))}
         </List>
       )}
-      {isLoading && (<CastLoader />)}
+      {isLoading && <CastLoader />}
     </Box>
   );
 };
 
 export default CastList;
-
